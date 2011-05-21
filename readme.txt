@@ -4,7 +4,7 @@ Donate link: http://www.spaw.it
 Tags: limits, post limits, page limits, limit new-post
 Requires at least: 3.1.2
 Tested up to: 3.1.2
-Stable tag: 1.0
+Stable tag: 1.1
 
 This plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
 
@@ -12,14 +12,15 @@ This plugin helps you to limit the number of posts/pages/custom post types each 
 
 This plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
 This means that if you have a multiple author,editor and other roles users in your blog and you want to limit 
-the number of posts each author can post you can do it using this plugin. We hope to extend this plugin quickly to meet 
-your requests. It's simple and very fast and its scope is the creation of new post through new-post.php; if you don't know new-post.php
+the number of posts or page each author can post you can do it using this plugin. We hope to extend this plugin quickly to meet 
+your requests. It's simple and very fast and its scope is the creation of new post or page through new-post.php; if you don't know new-post.php
 page is used also to create new static page because for Wordpress a page is a particular post.
 N.B. Administrator users are not limited; this plugin is not tested on multisite install but probably it works like we expect
 
 **Main Feature:**
 
-*   Limit number of post per type of user Role
+*   Limit number of pages per type of user Role
+*   Limit number of posts per type of user Role
 *   Exclude special users.
 
 FeedBack is welcome
@@ -49,6 +50,7 @@ Simply go to <a href=\"http://www.spaw.it/\">Official Site</a> and submit it.
 
 == Changelog ==
 
+1.1 Correct some problems and add new functios
 1.0 Initial Release
 
 == Screenshots ==

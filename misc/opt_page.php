@@ -6,14 +6,25 @@
       Enter <strong>-1</strong> for no limits. Note that Administrators have not limitations.</p>
 
 <h3>Role Limitation</h3>
+<span class="description">Enter the maximum number of post/page each Role can create.</span>
 <table class="form-table">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th>Post</th>
+            <th>Page</th>
+        </tr>
+    </thead>
+    <tbody>
 	<?php foreach (array_keys($wp_roles->roles) as $role) {
             if ($role == 'administrator') continue;//exclude administrator role?>
 	<tr>
 		<th><label><?php echo ucfirst($role) ?></label></th>
-        <td><input name="post_role_limits[<?php echo $role ?>]" type="text" value="<?php echo $options['post_role_limits'][$role] ?>" class="samll-text"  />&nbsp;<span class="description">Enter the maximum number of post each <?php echo $role ?> can create.</span></td>
+        <td><input name="post_role_limits[<?php echo $role ?>][post]" type="text" value="<?php echo $options['post_role_limits'][$role]['post'] ?>" class="samll-text"  /></td>
+        <td><input name="post_role_limits[<?php echo $role ?>][page]" type="text" value="<?php echo $options['post_role_limits'][$role]['page'] ?>" class="samll-text"  /></td>
 	</tr>
     <?php } ?>
+        </tbody>
 </table>
 
 <h3>Special Users</h3>

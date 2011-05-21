@@ -3,7 +3,7 @@
 Plugin Name: Limit Post Creation
 Plugin URI: http://www.spaw.it/359/wordpress-plugin-limit-post-creation/
 Description: this plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
-Version: 1.0
+Version: 1.1
 Author: SPAW - Servizi Portali & Applicazioni Web
 Author URI: http://www.spaw.it/
 */
@@ -55,36 +55,42 @@ function spaw_lpc_check_cap($capabilities) {
  //chek if the current user is a special one
  if(spaw_lpc_check_special_user($options['exclude_users'], $current_user->ID)) return $capabilities;
  
- //retrieve post role limit for the user
+ //retrieve post/page role limit for the user
  $limit = false;
-  foreach ($current_user->roles as $role) {      
-    if (isset($options['post_role_limits'][$role])) {
-      if ($options['post_role_limits'][$role] == -1) {
+  foreach ($current_user->roles as $role) {
+      if($page_type=='post'){
+    if (isset($options['post_role_limits'][$role]['post'])) {
+      if ($options['post_role_limits'][$role]['post'] == -1) {
         return $capabilities;
-      } else if ($options['post_role_limits'][$role] > $limit) {
-        $limit = $options['post_role_limits'][$role];
+      } else if ($options['post_role_limits'][$role]['post'] > $limit) {
+        $limit = $options['post_role_limits'][$role]['post'];
         
       }
     }
+  }//if page is post
+  if($page_type=='page'){
+    if (isset($options['post_role_limits'][$role]['page'])) {
+      if ($options['post_role_limits'][$role]['page'] == -1) {
+        return $capabilities;
+      } else if ($options['post_role_limits'][$role]['page'] > $limit) {
+        $limit = $options['post_role_limits'][$role]['page'];
+
+      }
+    }
+  }//if page is page
   }
   
-  //retrieve number of post for the current user
- $posts = get_posts(array('numberposts' => $limit, 'author' => $current_user->ID, 'post_status' => 'publish'));
+  //retrieve number of post/page for the current user
+ $posts = get_posts(array('numberposts' => $limit, 'author' => $current_user->ID, 'post_status' => 'publish','post_type'=>$page_type));
  $nrPosts = count($posts);
- //test part
+
  
  //if limit is setted and reached deny access to user forn new post
  if($limit==true && ($nrPosts>$limit || $nrPosts==$limit)){
      wp_die( __('<div style="color:red;font-size:20px">Limit Post/Page Creation Warning</div>
 <div style="font-weight:bold">You reached the maximum published allowed Post, return to
 <a href="index.php">Dashboard</a> or contact your administrator</div>') );
-   // unset($capabilities['edit_posts']);
-     
-     //return $capabilities;
  }
-  
-  //unset($capabilities['edit_posts']);
-	//if($total_call == 1) echo "<p><span style='color:red;font-size:15px;'>You exceeded the maximum allowed Post/page creation!<br> Tomorrow you will be able to create new Posts</span><br><br><a href='index.php'>Go To Dashboard</a> or visit <a href=''>Limit Post Creation Per Day</a></p>";
     return $capabilities;
 }
 

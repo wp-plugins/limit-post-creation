@@ -35,14 +35,6 @@ function spaw_lpc_check_special_user($options,$id) {
                 else return false;
     }
 }
-/**
- * SELECT count(*) FROM 
-`wp_posts` p join `wp_usermeta` u
-WHERE p.post_author = u.user_id
-	AND  u.meta_key =  'wp_capabilities'
-	AND  u.meta_value LIKE  '%administrator%'
-	AND p.post_status = 'publish'
-	AND p.post_type = 'page'
- */
+
 
 ?>
