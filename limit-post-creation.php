@@ -3,7 +3,7 @@
 Plugin Name: Limit Post Creation
 Plugin URI: http://www.spaw.it/359/wordpress-plugin-limit-post-creation/
 Description: this plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
-Version: 1.1
+Version: 1.2
 Author: SPAW - Servizi Portali & Applicazioni Web
 Author URI: http://www.spaw.it/
 */
@@ -26,7 +26,6 @@ include 'misc/functions.php';
 /**
  * Check capabilities to allow or deny access to create new page/post
  */
-$total_call = 0;
 function spaw_lpc_check_cap($capabilities) {
     global $pagenow;
     //get current user data
@@ -85,7 +84,7 @@ function spaw_lpc_check_cap($capabilities) {
  $nrPosts = count($posts);
 
  
- //if limit is setted and reached deny access to user forn new post
+ //if limit is setted and reached deny access to user for new post
  if($limit==true && ($nrPosts>$limit || $nrPosts==$limit)){
      wp_die( __('<div style="color:red;font-size:20px">Limit Post/Page Creation Warning</div>
 <div style="font-weight:bold">You reached the maximum published allowed Post, return to

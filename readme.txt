@@ -1,10 +1,10 @@
 ﻿=== SPAW Page/Post Creation Limits ===
 Contributors: SPAW - Servizi Portali & Applicazioni Web www.spaw.it
-Donate link: http://www.spaw.it
+Donate link: http://www.spaw.it/359/wordpress-plugin-limit-post-creation/
 Tags: limits, post limits, page limits, limit new-post
 Requires at least: 3.1.2
 Tested up to: 3.1.2
-Stable tag: 1.1
+Stable tag: 1.2
 
 This plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
 
@@ -37,7 +37,7 @@ FeedBack is welcome
 
 = I have Found a Bug, Now what? =
 
-Simply go to <a href=\"http://www.spaw.it/\">Official Site</a> and submit it.
+Simply go to <a href=\"http://www.spaw.it/359/wordpress-plugin-limit-post-creation/\">Official Site</a> and submit it.
 
 
 = It's Not Working...? =
@@ -50,7 +50,8 @@ Simply go to <a href=\"http://www.spaw.it/\">Official Site</a> and submit it.
 
 == Changelog ==
 
-1.1 Correct some problems and add new functios
+1.2 Enhance error checking
+1.1 Correct some problems and add new functions
 1.0 Initial Release
 
 == Screenshots ==

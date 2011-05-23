@@ -15,17 +15,12 @@ function spaw_lpc_get_role($roleName,$roleUser) {
  * @return string $page_type the type of page requested, if for new post or new page 
  */
 function spaw_lpc_get_page_type() {
-     if (isset($_GET['post_type'])){
-			$page_type = $_GET['post_type'];
-		}
-		else
-		{
-			$page_type = 'post';
-		}
-                return $page_type;
+     if (isset($_GET['post_type']))$page_type = $_GET['post_type'];
+     else $page_type = 'post';
+     return $page_type;
 }
 /**
- * Check if current user is a apsecial one that doesn't have restrictions
+ * Check if current user is a special one that doesn't have restrictions
  * @return bool $special true if the user is special 
  */
 function spaw_lpc_check_special_user($options,$id) {
