@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Limit Post Creation
-Plugin URI: http://www.spaw.it/359/wordpress-plugin-limit-post-creation/
+Plugin URI: http://blog.glue-labs.com/359/wordpress-plugin-limit-post-creation/
 Description: this plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
-Version: 1.2
-Author: SPAW - Servizi Portali & Applicazioni Web
-Author URI: http://www.spaw.it/
+Version: 1.3
+Author: Glue Labs - Makes extraordinary things
+Author URI: http://www.glue-labs.com/
 */
-/*  Copyright 2011  SPAW - Servizi Portali & Applicazioni Web ( info@spaw.it)
+/*  Copyright 2011  Glue Labs - Makes extraordinary things ( info@glue-labs.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -77,12 +77,15 @@ function spaw_lpc_check_cap($capabilities) {
       }
     }
   }//if page is page
+  //retrive time
+  $timeLimit = 'ever';
+  if ($options['post_role_limits'][$role]['time']!=$timeLimit){
+          $timeLimit = $options['post_role_limits'][$role]['time'];
+           }
   }
+  $nrPosts = get_nr_post($timeLimit,$page_type);
+  $limit = intval($limit);
   
-  //retrieve number of post/page for the current user
- $posts = get_posts(array('numberposts' => $limit, 'author' => $current_user->ID, 'post_status' => 'publish','post_type'=>$page_type));
- $nrPosts = count($posts);
-
  
  //if limit is setted and reached deny access to user for new post
  if($limit==true && ($nrPosts>$limit || $nrPosts==$limit)){
@@ -92,7 +95,49 @@ function spaw_lpc_check_cap($capabilities) {
  }
     return $capabilities;
 }
+/**
+ * get number of posts by formatting query
+ * @param string $where where clause in query
+ * @param string $page_type the kind of page
+ * @return int number of posts
+ */
+function get_nr_post($where,$page_type) {
+   $filter = false; 
+    switch ($where) {
+        case 'day':
+            add_filter( 'posts_where', 'filter_day' );
+            $filter=1;
+            break;
+        case 'week':
+            add_filter( 'posts_where', 'filter_week' );
+            $filter=2;
+            break;
+        case 'month':
+            add_filter( 'posts_where', 'filter_month' );
+            $filter=3;
+            break;
+        default:
+            break;
+    }    
+$query_string = array( 'author' => $current_user->ID, 'post_status' => 'publish','post_type'=>$page_type);
+$query = new WP_Query( $query_string );
+$NrPosts =  $query->post_count;
+switch ($filter) {
+    case 1:
+        remove_filter( 'posts_where', 'filter_day' );
+        break;
+    case 2:
+        remove_filter( 'posts_where', 'filter_week' );
+        break;
+    case 3:
+        remove_filter( 'posts_where', 'filter_month' );
+        break;
+    default:
+        break;
+}
 
+return $NrPosts;
+}
 /**
  * Build menu under settings for Plugin
  */

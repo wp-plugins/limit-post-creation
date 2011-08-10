@@ -1,10 +1,10 @@
-﻿=== SPAW Page/Post Creation Limits ===
-Contributors: SPAW - Servizi Portali & Applicazioni Web www.spaw.it
-Donate link: http://www.spaw.it/359/wordpress-plugin-limit-post-creation/
+﻿=== Glue Labs Page/Post Creation Limits ===
+Contributors: Glue Labs - Make extraordinary things - www.glue-labs.com
+Donate link: http://blog.glue-labs.com/359/wordpress-plugin-limit-post-creation/
 Tags: limits, post limits, page limits, limit new-post
 Requires at least: 3.1.2
-Tested up to: 3.1.2
-Stable tag: 1.2
+Tested up to: 3.2.1
+Stable tag: 1.3
 
 This plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
 
@@ -19,6 +19,7 @@ N.B. Administrator users are not limited; this plugin is not tested on multisite
 
 **Main Feature:**
 
+*   Set time period 
 *   Limit number of pages per type of user Role
 *   Limit number of posts per type of user Role
 *   Exclude special users.
@@ -37,7 +38,7 @@ FeedBack is welcome
 
 = I have Found a Bug, Now what? =
 
-Simply go to <a href=\"http://www.spaw.it/359/wordpress-plugin-limit-post-creation/\">Official Site</a> and submit it.
+Simply go to <a href=\"http://blog.glue-labs.com/359/wordpress-plugin-limit-post-creation/\">Official Site</a> and submit it.
 
 
 = It's Not Working...? =
@@ -46,13 +47,14 @@ Simply go to <a href=\"http://www.spaw.it/359/wordpress-plugin-limit-post-creati
 
 == Upgrade Notice ==
 
-1.1 Limit Page per type of user Role
+1.3 Limit choosing time period
 
 == Changelog ==
 
-1.2 Enhance error checking
-1.1 Correct some problems and add new functions
-1.0 Initial Release
+*   1.3 Add time choosing
+*   1.2 Enhance error checking
+*   1.1 Correct some problems and add new functions
+*   1.0 Initial Release
 
 == Screenshots ==
 

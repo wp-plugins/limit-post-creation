@@ -31,5 +31,21 @@ function spaw_lpc_check_special_user($options,$id) {
     }
 }
 
+/**
+ * Filtering functions for time query
+ */
+function filter_day( $where = '' ) {
+            $where .= " AND post_date > '" . date('Y-m-d', strtotime('-1 day')) . "'";
+            return $where;
+}
+function filter_week( $where = '' ) {
+            $where .= " AND post_date > '" . date('Y-m-d', strtotime('-7 days')) . "'";
+            return $where;
+}
+function filter_month( $where = '' ) {
+            $where .= " AND post_date > '" . date('Y-m-d', strtotime('-30 days')) . "'";
+            return $where;
+}
+
 
 ?>
