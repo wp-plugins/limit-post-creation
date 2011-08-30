@@ -83,8 +83,14 @@ function spaw_lpc_check_cap($capabilities) {
           $timeLimit = $options['post_role_limits'][$role]['time'];
            }
   }
-  $nrPosts = get_nr_post($timeLimit,$page_type);
-  $limit = intval($limit);
+ $limit = intval($limit);
+ //retrieve number of post/page for the current user
+ if($timeLimit=='ever'){  
+     $posts = get_posts(array('numberposts' => $limit, 'author' => $current_user->ID, 'post_status' => 'publish','post_type'=>$page_type));
+     $nrPosts = count($posts);
+ }else{
+    $nrPosts = get_nr_post($timeLimit,$page_type);
+ }
   
  
  //if limit is setted and reached deny access to user for new post
