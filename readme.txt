@@ -4,7 +4,7 @@ Donate link: http://blog.glue-labs.com/359/wordpress-plugin-limit-post-creation/
 Tags: limits, post limits, page limits, limit new-post
 Requires at least: 3.1.2
 Tested up to: 3.2.1
-Stable tag: 1.3
+Stable tag: 1.4
 
 This plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
 
@@ -47,7 +47,7 @@ Simply go to <a href=\"http://blog.glue-labs.com/359/wordpress-plugin-limit-post
 
 == Upgrade Notice ==
 
-1.3 Limit choosing time period
+1.4 Fix bug for 'ever' option
 
 == Changelog ==
 

@@ -3,7 +3,7 @@
 Plugin Name: Limit Post Creation
 Plugin URI: http://blog.glue-labs.com/359/wordpress-plugin-limit-post-creation/
 Description: this plugin helps you to limit the number of posts/pages/custom post types each user can create on your site.
-Version: 1.3
+Version: 1.4
 Author: Glue Labs - Makes extraordinary things
 Author URI: http://www.glue-labs.com/
 */
